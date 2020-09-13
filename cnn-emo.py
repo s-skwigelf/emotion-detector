@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Sat Sep 12 14:34:01 2020
 
-@author: harsh
-"""
 
 # CREATING THE NEURAL NETWORK AND EMOTION DETECTOR
 
@@ -16,14 +11,14 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 # 1. Preprocessing the images/data
 train_datagen = ImageDataGenerator(rescale = 1./255)
-train_set = train_datagen.flow_from_directory('C:\\Users\\harsh\\Desktop\\aithon2020-level-2\\data\\training',
+train_set = train_datagen.flow_from_directory('your_folder_path/data/training',
                                               target_size = (48, 48),
                                               batch_size = 32,
                                               color_mode = 'grayscale',
                                               class_mode = 'categorical')
 
 test_datagen = ImageDataGenerator(rescale = 1./255)
-test_set = test_datagen.flow_from_directory('C:\\Users\\harsh\\Desktop\\aithon2020-level-2\\data\\testing',
+test_set = test_datagen.flow_from_directory('your_folder_path/data/testing',
                                             target_size = (48, 48),
                                             batch_size = 32,
                                             color_mode = 'grayscale',
@@ -68,12 +63,7 @@ callbacks = [tf.keras.callbacks.EarlyStopping(patience = 35, monitor = 'val_loss
 #training
 cnn.fit(train_set, epochs = 60, validation_data = test_set, callbacks = callbacks)
 
-# 4. Testing on single images
-#test_image = image.load_img('C:\\Users\\harsh\\Desktop\\aithon2020-level-2\\data\\im0.jpg', target_size = (48, 48))
-#test_image = image.img_to_array(test_image)
-#test_image = np.expand_dims(test_image, axis = 0)
-#result = cnn.predict(test_image)
-train_set.class_indices
+train_set.class_indices #shows the index values of the classes
 
 cv2.ocl.setUseOpenCL(False)
 
