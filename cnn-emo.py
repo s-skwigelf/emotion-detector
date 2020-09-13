@@ -65,6 +65,7 @@ cnn.fit(train_set, epochs = 60, validation_data = test_set, callbacks = callback
 
 train_set.class_indices #shows the index values of the classes
 
+# 4. Live prediction with OpenCV
 cv2.ocl.setUseOpenCL(False)
 
 emotion_dict = {0: 'fear', 1: 'happy', 2: 'sad'}
