@@ -1,9 +1,4 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Sep  9 13:44:00 2020
 
-@author: harsh
-"""
 
 # CREATING IMAGES FROM PIXEL VALUES IN THE DATASET
 
@@ -13,10 +8,7 @@ import pandas as pd
 from PIL import Image
 
 # 1. Performing exploratory data analysis on the dataset
-raw = pd.read_csv('aithon2020_level2_traning.csv')
-
-raw = pd.read_csv('aithon2020_level2_traning.csv', skiprows = 1)
-data = raw.copy()
+raw = pd.read_csv('dataset_file.csv') #this is just for preliminary data analysis
 
 #checking the available emotions
 col_vals = data[["emotion"]].values
@@ -47,6 +39,8 @@ DATASET ANALYSIS -
 - 17 noisy images in total
 
 '''
+raw = pd.read_csv('dataset_file.csv', skiprows = 1) #run this for the file coonversion
+data = raw.copy()
 
 #shifting the emotions column to the end of the dataframe
 cols = list(data.columns.values) 
@@ -69,15 +63,15 @@ for row in data.itertuples(index = False, name = 'Pandas'):
     image = Image.fromarray(pixels)
 
     if str(row[-1]) == 'Fear':
-        image.save('C:\\Users\\harsh\\Desktop\\aithon2020-level-2\\data\\fear\\im'+str(fear)+'.jpg')
+        image.save('your_folder_path/data/fear/im'+str(fear)+'.jpg')
         fear += 1
 
     elif str(row[-1]) == 'Happy':
-        image.save('C:\\Users\\harsh\\Desktop\\aithon2020-level-2\\data\\happy\\im'+str(happy)+'.jpg')
+        image.save('your_folder_path/data/happy/im'+str(happy)+'.jpg')
         happy += 1
     
     elif str(row[-1]) == 'Sad':
-        image.save('C:\\Users\\harsh\\Desktop\\aithon2020-level-2\\data\\sad\\im'+str(sad)+'.jpg')
+        image.save('your_folder_path/data/sad/im'+str(sad)+'.jpg')
         sad += 1
 
-print('done') 
+print('Done') 
