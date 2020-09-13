@@ -10,6 +10,7 @@ For the purpose of face detection, the haar cascade xml file is used.
 The cleaned dataset (10816 -> 10799) was divided into 8639 images for training and 2160 for testing/validation.
 A neural network consisting of 4 convoluted layers and a couple of dense layers with the 'adam' optimizer was trained over 60 epochs to give an accuracy of about 73%.
 
-- The converted dataset is already provided as a zip file.
+- The actual .csv dataset is provided as a 7z file -> training-data.7z
+- The converted dataset is already provided as a zip file -> dataset.zip
 - In case you want to do the conversion yourself, the img_create.py file is the one you want to look at.
 - The cnn_emo.py file contains the actual neural network with an OpenCV driven module that will make use of your webcam to predict the emotion of a live subject.
